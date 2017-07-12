@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lib</string>
+    <string name="wake_by_broadcast">广播唤醒</string>
+    <string name="wake_by_service">服务唤醒</string>
+</resources>

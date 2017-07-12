@@ -1,0 +1,41 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.aesean.lib.wake">
+
+    <uses-permission android:name="com.aesean.lib.permission.WAKE_BROADCAST"/>
+    <uses-permission android:name="com.aesean.lib.permission.WAKE_SERVICE"/>
+
+    <permission
+        android:name="com.aesean.lib.permission.WAKE_BROADCAST"
+        android:label="@string/wake_by_broadcast"
+        android:permissionGroup="com.aesean.lib.WAKE"
+        android:protectionLevel="normal"/>
+
+    <permission
+        android:name="com.aesean.lib.permission.WAKE_SERVICE"
+        android:label="@string/wake_by_service"
+        android:permissionGroup="com.aesean.lib.WAKE"
+        android:protectionLevel="normal"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <receiver
+            android:name=".WakeBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.aesean.lib.permission.WAKE_BROADCAST">
+            <intent-filter>
+                <action android:name="com.aesean.lib.WAKE_BROADCAST"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".WakeService"
+            android:exported="true"
+            android:permission="com.aesean.lib.permission.WAKE_SERVICE">
+            <intent-filter>
+                <action android:name="com.aesean.lib.WAKE_SERVICE"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
